@@ -1,6 +1,7 @@
 package com.crudjspjava.dao;
 
 import com.crudjspjava.bean.Solicitacao;
+import com.crudjspjava.util.ConnectionFactory;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -106,6 +107,22 @@ public class SolicitacaoDAO {
 
         return solicitacao;
     }
+    public static double buscarLimite(String cpf) {
+        double limite = 0.0;
+        try (Connection con = ConnectionFactory.getConnection();
+             PreparedStatement ps = con.prepareStatement("SELECT limite FROM solicitacoes WHERE cpf = ?")) {
+            ps.setString(1, cpf);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    limite = rs.getDouble("limite");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return limite;
+    }
+
 
 
     private double calcularLimiteCredito(int score, double renda) {

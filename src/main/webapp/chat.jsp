@@ -18,7 +18,7 @@
             <img src="images/logo.png" alt="Logo do Banco">
             <h1>Athenas Bank</h1>
             <a href="Perfil.jsp" class="menu-item">Perfil</a>
-            <a href="Conta.jsp" class="menu-item">Conta</a>
+            <a href="Parcelamento.jsp" class="menu-item">Parcelamento</a>
             <a href="Formulario.html" class="menu-item">Solicitações</a>
             <a href="Solicitacoes.jsp" class="menu-item">Cartões</a>
             <a href="Transferencias.jsp" class="menu-item">Transferências</a>

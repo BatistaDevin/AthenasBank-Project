@@ -1,0 +1,183 @@
+/* Estilo Geral */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F0F0F0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    color: #333;
+}
+
+/* Menu Lateral */
+.sidebar {
+    width: 250px;
+    background-color: #A00000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    color: #FFFFFF;
+}
+
+.sidebar img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.sidebar h1 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sidebar .menu-item {
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sidebar .menu-item:hover {
+    background-color: #FF6347;
+}
+
+.sidebar .logout {
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Conteúdo Principal */
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #FFF;
+    overflow-y: auto;
+}
+
+.content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #A00000;
+}
+
+/* Tabela de Transações */
+.transacoes table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.transacoes th, .transacoes td {
+    padding: 10px;
+    border: 1px solid #DDD;
+    text-align: left;
+}
+
+.transacoes th {
+    background-color: #A00000;
+    color: #FFF;
+}
+
+.transacoes tr:nth-child(even) {
+    background-color: #F9F9F9;
+}
+
+/* Estilo de Parcelamento */
+.parcelamento {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.parcelamento h3 {
+    font-size: 22px;
+    color: #A00000;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.parcelamento .opcoes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.parcelamento .opcao {
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    border: 2px solid #A00000;
+    color: #A00000;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.parcelamento .opcao:hover {
+    background-color: #A00000;
+    color: #FFFFFF;
+}
+
+.parcelamento .confirmar {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #A00000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.parcelamento .confirmar:hover {
+    background-color: #FF6347;
+}
+
+/* Campo de Extrato */
+.extrato {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDD;
+    border-radius: 10px;
+}
+
+.extrato h4 {
+    font-size: 18px;
+    color: #A00000;
+    margin-bottom: 10px;
+}
+
+.extrato ul {
+    list-style: none;
+    padding: 0;
+}
+
+.extrato ul li {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+}
