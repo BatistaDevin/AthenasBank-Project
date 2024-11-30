@@ -21,7 +21,7 @@
             <a href="Conta.jsp" class="menu-item">Conta</a>
             <a href="Formulario.html" class="menu-item">Solicitações</a>
             <a href="Solicitacoes.jsp" class="menu-item">Cartões</a>
-            <a href="#" class="menu-item">Transferências</a>
+            <a href="Transferencias.jsp" class="menu-item">Transferências</a>
             <a href="chat.jsp" class="menu-item">Chat Bank</a>
             <a href="index.jsp" class="logout">Sair</a>
         </div>

@@ -22,11 +22,12 @@
 
     <!-- Dependência do Servlet API para Jakarta -->
     <dependency>
-        <groupId>jakarta.servlet</groupId>
-        <artifactId>jakarta.servlet-api</artifactId>
-        <version>5.0.0</version>
-        <scope>provided</scope>
-    </dependency>
+    <groupId>jakarta.servlet</groupId>
+    <artifactId>jakarta.servlet-api</artifactId>
+    <version>5.0.0</version> <!-- ou a versão adequada -->
+    <scope>provided</scope>
+</dependency>
+
     
     <dependency>
   <groupId>mysql</groupId>

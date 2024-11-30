@@ -8,6 +8,8 @@ public class Usuario {
     private String sexo;
     private String pais;
     private String cpf; // Novo campo
+    private String agencia;
+    private String numeroConta;
 
     // Getters e Setters
     public int getId() {
@@ -65,4 +67,9 @@ public class Usuario {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+    public String getAgencia() { return agencia; }
+    public void setAgencia(String agencia) { this.agencia = agencia; }
+    
+    public String getNumeroConta() { return numeroConta; }
+    public void setNumeroConta(String numeroConta) { this.numeroConta = numeroConta; }
 }
