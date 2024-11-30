@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athenas Bank</title>
+    <link rel="stylesheet" href="TelaPrincipal.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- Menu Lateral -->
+    <div class="sidebar">
+        <img src="logo.png" alt="Logo Athenas Bank">
+        <h1>Athenas Bank</h1>
+        <a href="Perfil.jsp" class="menu-item">Perfil</a>
+        <a href="Conta.jsp" class="menu-item">Conta</a>
+        <a href="Formulario.jsp" class="menu-item">Solicitações</a>
+        <a href="Solicitacoes.jsp" class="menu-item">Cartões</a>
+        <a href="#" class="menu-item">Transferências</a>
+        <a href="chat.jsp" class="menu-item">Chat Bank</a>
+        <a href="index.jsp" class="logout">Sair</a>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="content">
+        <h2>Bem-vindo ao <span>Athenas Bank</span>:</h2>
+        <p>Liberdade em Crédito, Oportunidade Sem Espera!</p>
+
+        <div class="slider-container">
+            <div class="slider-value" id="slider-value">100</div>
+            <input type="range" id="credit-slider" class="slider" min="0" max="6000" value="100" oninput="updateSliderValue(this.value)">
+        </div>
+
+        <!-- Botão que redireciona para o formulário -->
+        <button id="btn-solicitar">Solicitar</button>
+    </div>
+</div>
+
+<script>
+    // Função para atualizar o valor do slider
+    function updateSliderValue(value) {
+        document.getElementById('slider-value').textContent = value;
+    }
+
+    // Função para redirecionar ao clicar no botão
+    document.getElementById("btn-solicitar").onclick = function() {
+        window.location.href = "Formulario.html";
+    };
+</script>
+
+</body>
+</html>

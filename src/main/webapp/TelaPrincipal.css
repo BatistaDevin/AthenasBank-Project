@@ -1,0 +1,145 @@
+@charset "ISO-8859-1";
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #7D0000;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    color: #FFFFFF;
+}
+
+/* Menu Lateral */
+.sidebar {
+    width: 250px;
+    background-color: #A00000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    color: #FFFFFF;
+}
+
+.sidebar img {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.sidebar h1 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sidebar .menu-item {
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sidebar .menu-item:hover {
+    background-color: #FF6347;
+}
+
+.sidebar .logout {
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #FF0000;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+/* Conteúdo Principal */
+.content {
+    flex: 1;
+    background: linear-gradient(to bottom, #7D0000, #A00000);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.content h2 {
+    color: #FFFFFF;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.content h2 span {
+    color: #FFD700;
+}
+
+.content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Slider */
+.slider-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.slider-value {
+    margin-right: 10px;
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.slider {
+    width: 300px;
+}
+
+/* Botão */
+.btn-solicitar {
+    background-color: #B59A44;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-solicitar:hover {
+    background-color: #DAA520;
+}
+
+/* Footer */
+.footer {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.footer .page {
+    padding: 5px 10px;
+    background-color: #FFFFFF;
+    color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.footer .page.active {
+    background-color: #A00000;
+    color: #FFFFFF;
+}
