@@ -14,18 +14,37 @@
     <div class="container">
         <!-- Menu Lateral -->
         <div class="sidebar">
-            <img src="logo.png" alt="Logo do Banco">
-            <h1>Athenas Bank</h1>
-            <a href="Perfil.jsp" class="menu-item">Perfil</a>
-            <a href="Parcelamento.jsp" class="menu-item">Parcelamento</a>
-            <a href="Formulario.jsp" class="menu-item">Solicitações</a>
-            <a href="Solicitacoes.jsp" class="menu-item">Cartões</a>
-            <a href="Transferencias.jsp" class="menu-item">Transferências</a>
-            <a href="chat.jsp" class="menu-item">Chat Bank</a>
-            <a href="index.jsp" class="logout">Sair</a>
+        <div class="logo-area">
+           <img src="Imagens/logo.png" alt="Logo do Banco">
+            <div class="bank-name">Athenas Bank</div>
         </div>
+        <nav class="nav-links">
+            <a href="Perfil.jsp" class="nav-item">
+                <img src="vector.png" alt="" class="icon"> Perfil
+            </a>
+            <a href="Parcelamento.jsp" class="nav-item">
+                <img src="carteira.png" alt="" class="icon"> Parcelamento
+            </a>
+            <a href="Formulario.jsp" class="nav-item">
+                <img src="transf.png" alt="" class="icon"> Solicitações
+            </a>
+            <a href="Solicitacoes.jsp" class="nav-item">
+                <img src="vector.png" alt="" class="icon"> Cartões
+            </a>
+            <a href="Transferencias.jsp" class="nav-item">
+                <img src="vector.png" alt="" class="icon"> Transferências
+            </a>
+            <a href="chat.jsp" class="nav-item">
+                <img src="chat.png" alt="" class="icon"> Chat Bank
+            </a>
+            <div class="profile-section">
+                <a href="index.jsp" class="logout">Sair</a>
+            </div>
+        </nav>
+    </div>
 
         <!-- Conteúdo Principal -->
+        
         <div class="content">
             <h2>Cartões</h2>
 

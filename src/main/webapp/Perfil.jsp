@@ -6,27 +6,23 @@
 <%@ page import="java.sql.Connection" %>
 
 <%
-    // Obtém CPF do usuário logado (armazenado na sessão)
+    // Autenticação: verificar usuário logado
     String cpfUsuarioLogado = (String) session.getAttribute("cpfUsuario");
 
-    // Se o CPF não estiver na sessão, significa que o usuário não está logado
     if (cpfUsuarioLogado == null) {
-        response.sendRedirect("index.jsp"); // Redireciona para login
+        response.sendRedirect("index.jsp");
         return;
     }
 
-    // Buscar dados do usuário no banco de dados usando o CPF
     Usuario usuario = null;
     try (Connection connection = ConnectionFactory.getConnection()) {
-        // Alterado para utilizar o CPF em vez do ID
-        usuario = UsuarioDao.getPerfilByCpf(cpfUsuarioLogado);  // Correção aqui (sem os parênteses)
+        usuario = UsuarioDao.getPerfilByCpf(cpfUsuarioLogado);
     } catch (Exception e) {
         e.printStackTrace();
         response.sendRedirect("erro.jsp");
         return;
     }
 
-    // Se não encontrar o usuário no banco, redireciona para a página de erro
     if (usuario == null) {
         response.sendRedirect("erro.jsp");
         return;
@@ -34,46 +30,83 @@
 %>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Usuário</title>
+    <title>Athenas Bank Dashboard</title>
     <link rel="stylesheet" href="perfil.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Menu Lateral -->
-          <div class="sidebar">
-            <img src="logo.png" alt="Logo Athenas Bank">
-            <h1>Athenas Bank</h1>
-            <a href="Perfil.jsp" class="menu-item">Perfil</a>
-            <a href="Parcelamento.jsp" class="menu-item">Parcelamento</a>
-            <a href="Formulario.jsp" class="menu-item">Solicitações</a>
-            <a href="Solicitacoes.jsp" class="menu-item">Cartões</a>
-            <a href="Transferencias.jsp" class="menu-item">Transferências</a>
-            <a href="chat.jsp" class="menu-item">Chat Bank</a>
-            <a href="index.jsp" class="logout">Sair</a>
+    <div class="sidebar">
+        <div class="logo-area">
+            <img src="Imagens/logo.png" alt="Logo do Banco">
+            <div class="bank-name">Athenas Bank</div>
         </div>
-
-        <!-- Conteúdo -->
-        <div class="content">
-            <h2>Perfil do Usuário</h2>
-            <div class="profile-container">
-                <div class="profile-photo">
-                    <img src="images/default-avatar.png" alt="Foto do Usuário">
-                    <p><a href="#">Alterar Foto</a></p>
+        <nav class="nav-links">
+            <a href="Perfil.jsp" class="nav-item">
+                <img src="vector.png" alt="" class="icon"> Perfil
+            </a>
+            <a href="Parcelamento.jsp" class="nav-item">
+                <img src="carteira.png" alt="" class="icon"> Parcelamento
+            </a>
+            <a href="Formulario.jsp" class="nav-item">
+                <img src="transf.png" alt="" class="icon"> Solicitações
+            </a>
+            <a href="Solicitacoes.jsp" class="nav-item">
+                <img src="vector.png" alt="" class="icon"> Cartões
+            </a>
+            <a href="Transferencias.jsp" class="nav-item">
+                <img src="vector.png" alt="" class="icon"> Transferências
+            </a>
+            <a href="chat.jsp" class="nav-item">
+                <img src="chat.png" alt="" class="icon"> Chat Bank
+            </a>
+            <div class="profile-section">
+                <a href="index.jsp" class="logout">Sair</a>
+            </div>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="profile-card">
+            <h2 class="profile-title">Perfil</h2>
+            <div class="photo-section">
+                <div class="photo-container">
+                    <img src="/placeholder.svg" alt="Foto de perfil" class="profile-photo" id="profile-photo">
+                    <label for="photo-upload" class="photo-upload-label">📷</label>
+                    <input type="file" id="photo-upload" class="photo-upload-input" accept="image/*">
                 </div>
-                <div class="profile-info">
-                    <p><strong>Nome:</strong> <%= usuario.getNome() %></p>
-                    <p><strong>CPF:</strong> <%= usuario.getCpf() %></p>
-                    <p><strong>Número da Conta:</strong> <%= usuario.getNumeroConta() %></p>
-                    <p><strong>Agência:</strong> <%= usuario.getAgencia() %></p>
-                    <p><strong>País:</strong> <%= usuario.getPais() %></p>
+                <div class="photo-text">
+                    <h3 class="photo-title">Alterar foto</h3>
+                    <p class="photo-subtitle">Clique no ícone para atualizar sua foto de perfil</p>
                 </div>
             </div>
-            <a href="chat.jsp" class="help-button">Precisa de Ajuda? Acesse o Chat</a>
+            <form action="AtualizarPerfilServlet" method="post">
+                <div class="form-group">
+                    <label for="name" class="form-label">Nome</label>
+                    <input type="text" id="name" name="nome" class="form-input" value="<%= usuario.getNome() %>">
+                </div>
+                <div class="form-group">
+                    <label for="cpf" class="form-label">CPF</label>
+                    <input type="text" id="cpf" name="cpf" class="form-input" value="<%= usuario.getCpf() %>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="account" class="form-label">Número da Conta</label>
+                    <input type="text" id="account" name="numeroConta" class="form-input" value="<%= usuario.getNumeroConta() %>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="branch" class="form-label">Agência</label>
+                    <input type="text" id="branch" name="agencia" class="form-input" value="<%= usuario.getAgencia() %>" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="country" class="form-label">País</label>
+                    <input type="text" id="country" name="pais" class="form-input" value="<%= usuario.getPais() %>">
+                </div>
+                <button type="submit" class="save-button">Salvar Alterações</button>
+            </form>
+            <a href="Ajuda.jsp" class="help-link">Precisa de ajuda?</a>
         </div>
     </div>
+    <script src="perfil.js"></script>
 </body>
 </html>

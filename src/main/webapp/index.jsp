@@ -1,32 +1,35 @@
 <%@ page import="com.crudjspjava.dao.LoginDao" %>
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athenas Bank - Login</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body class="background-image">
-    <div class="container">
-        <div class="left-section">
-            <h1>Bem-vindo ao Athenas Bank</h1>
-            <p>Entre com seu CPF e senha para acessar sua conta.</p>
-        </div>
-        
-        <div class="right-section">
-            <h2>Login</h2>
+<body>
+    <div class="left-side">
+        <img src="Imagens/logo.png" alt="Logo do Banco">
+        <div class="bank-name">Athenas Bank</div>
+        <p class="instructions">
+            Entre com seu CPF e senha para acessar sua conta e gerenciar suas finanças com segurança.
+        </p>
+    </div>
 
-            <% 
-            // Verifica se há mensagem de erro na requisição (caso tenha falhado o login)
-            String errorMessage = (String) request.getAttribute("errorMessage");
-            if (errorMessage != null) {
-                out.println("<div class='alert alert-danger' role='alert'>" + errorMessage + "</div>");
-            }
-            %>
+    <div class="right-side">
+        <h1 class="form-title">Login</h1>
 
-            <!-- Formulário de Login -->
-            <form method="post" action="login"> <!-- Ação alterada para /login -->
+        <% 
+        // Verifica se há mensagem de erro na requisição (caso tenha falhado o login)
+        String errorMessage = (String) request.getAttribute("errorMessage");
+        if (errorMessage != null) {
+            out.println("<div class='alert alert-danger' role='alert'>" + errorMessage + "</div>");
+        }
+        %>
+
+        <!-- Formulário de Login -->
+        <form method="post" action="login"> <!-- Ação alterada para /login -->
                 <div class="form-group">
                     <label for="cpf">CPF:</label>
                     <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
@@ -39,9 +42,9 @@
                     <label for="password">Senha:</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Digite sua senha" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Entrar</button>
+                <button type="submit" class="login-button">Entrar</button>
             </form>
         </div>
-    </div>
+
 </body>
 </html>

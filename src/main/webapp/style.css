@@ -1,118 +1,120 @@
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 body {
+    min-height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: #333;
-    color: #333;
 }
 
-.container {
-    display: flex;
-    width: 90%;
-    height: 90vh;
-    max-width: 1200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #fff;
-}
-
-.left-section {
-    width: 50%;
-    padding: 20px;
-    background: linear-gradient(135deg, #a11e00, #f4b042);
-    color: #fff;
+.left-side {
+    flex: 1;
+    background: linear-gradient(135deg, #D4AF37 0%, #800000 100%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: white;
+    padding: 2rem;
     text-align: center;
+    position: relative;
 }
 
-.left-section h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
 }
 
-.right-section {
-    width: 50%;
-    padding: 40px;
-    background-color: #f5f5f5;
+.logo-container {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1rem;
+    background-image: url('logo.png');
+    background-size: cover; /* Ajusta a imagem ao tamanho do container */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.right-section h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+.bank-name {
+    font-size: 1.25rem;
+    color: #D4AF37;
+    letter-spacing: 1px;
+}
+
+.right-side {
+    width: 500px;
+    background: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem;
+}
+
+.login-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
     color: #333;
 }
 
-table {
-    width: 100%;
+.form-group {
+    margin-bottom: 1.5rem;
 }
 
-table td {
-    padding: 10px 0;
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 0.9rem;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"],
-select {
+.form-control {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
-input[type="submit"] {
+.form-control:focus {
+    outline: none;
+    border-color: #D4AF37;
+}
+
+.login-button {
     width: 100%;
-    padding: 12px;
-    background-color: #f4b042;
+    padding: 1rem;
+    background: #D4AF37;
     border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
+    border-radius: 4px;
+    color: black;
+    font-size: 1rem;
     cursor: pointer;
-    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
 }
 
-input[type="submit"]:hover {
-    background-color: #d8971d;
+.login-button:hover {
+    background: #c4a030;
 }
 
-.container-clique {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    margin-top: 15px;
-}
-
-.container-clique:hover {
-    background-color: #0056b3;
-}
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        width: 90%;
-        height: auto;
-    }
-
-    .left-section, .right-section {
-        width: 100%;
-    }
+.error-text {
+    color: #dc3545;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
 }
