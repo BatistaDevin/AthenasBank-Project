@@ -116,16 +116,31 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    margin-bottom: 30px;
+
+}.cartao-imagem {
+    position: relative;
+    width: 350px;
+    height: 220px;
+    background-image: url('cartaoum.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.cartao-imagem:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho do cartão */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4); /* Intensifica a sombra */
 }
 
-.cartao {
-    background-color: #FFD700;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    width: 300px;
-    color: #333;
+.cartao-info {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .adicionar-cartao {
@@ -146,24 +161,162 @@ body {
 }
 
 /* Tabela de Transações */
-.transacoes table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+
+        .transactions-section {
+            margin-top: 2rem;
+        }
+
+        .transactions-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .transactions-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .transactions-table th,
+        .transactions-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .transactions-table th {
+            font-weight: 600;
+            color: #666;
+        }
+
+        .transaction-type {
+            padding: 0.25rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .transaction-type-credit {
+            background-color: #e6f4ea;
+            color: #1e7e34;
+        }
+
+        .transaction-type-debit {
+            background-color: #fce8e6;
+            color: #d32f2f;
+        }.Vector-1 {
+
+  width: 303.7px;
+
+  height: 320.1px;
+
+  flex-grow: 0;
+
+  margin: 25.5px 35.5px 19.4px 34.9px;
+
+  background-color: #e4e4e7;
+
 }
 
-.transacoes th,
-.transacoes td {
-    padding: 10px;
-    border: 1px solid #DDD;
-    text-align: left;
+
+
+/* Adicionar Cartão */
+
+.Rectangle-6 {
+
+  width: 315px;
+
+  height: 179px;
+
+  margin: 91px 26px 48px 10px;
+
+  padding: 25px 44px 31px 78px;
+
+  border-radius: 5px;
+
+  border: solid 3px #e9e2e2;
+
 }
 
-.transacoes th {
-    background-color: #A00000;
-    color: #FFF;
+
+
+.Adicionar-CartaCarto {
+
+  width: 193px;
+
+  height: 26px;
+
+  margin: 0 0 27px;
+
+  font-family: Alata;
+
+  font-size: 19px;
+
+  color: #535353;
+
 }
 
-.transacoes tr:nth-child(even) {
-    background-color: #F9F9F9;
+
+
+/* Ellipse dentro de Adicionar Cartão */
+
+.Ellipse-1 {
+
+  width: 70px;
+
+  height: 70px;
+
+  margin: 27px 78px 0 45px;
+
+  padding: 17px 17px 16px 16px;
+
+  border: solid 3px #c4c4c4;
+
+}
+
+
+
+.Union {
+
+  width: 37px;
+
+  height: 37px;
+
+  background-color: #c4c4c4;
+
+}
+
+
+
+.Rectangle-7 {
+
+  width: 4.5px;
+
+  height: 37px;
+
+  margin: 0 16.2px 0 16.2px;
+
+  border-radius: 75.5px;
+
+  background-color: #c4c4c4;
+
+}
+
+
+
+.Rectangle-8 {
+
+  width: 37px;
+
+  height: 4.5px;
+
+  margin: 16.2px 0 16.2px;
+
+  transform: rotate(-90deg);
+
+  border-radius: 75.5px;
+
+  background-color: #c4c4c4;
+
 }

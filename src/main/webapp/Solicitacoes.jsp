@@ -63,14 +63,17 @@
                         if (solicitacao != null) {
                 %>
                             <div class="cartao">
-                                <div class="cartao-info">
-                                    <p><strong>Número:</strong> <%= solicitacao.getCartao() %></p>
-                                    <p><strong>CVV:</strong> <%= solicitacao.getCvv() %></p>
-                                    <p><strong>Validade:</strong> <%= solicitacao.getValidade() %></p>
-                                    <p><strong>Limite:</strong> R$ <%= String.format("%.2f", solicitacao.getLimiteCredito()) %></p>
-                                    <p><strong>Agência:</strong> 1234</p>
-                                </div>
-                            </div>
+    <div class="cartao-imagem">
+        <div class="cartao-info">
+            <p><strong>Número:</strong> <%= solicitacao.getCartao() %></p>
+            <p><strong>CVV:</strong> <%= solicitacao.getCvv() %></p>
+            <p><strong>Validade:</strong> <%= solicitacao.getValidade() %></p>
+            <p><strong>Limite:</strong> R$ <%= String.format("%.2f", solicitacao.getLimiteCredito()) %></p>
+            <p><strong>Agência:</strong> 1234</p>
+        </div>
+    </div>
+</div>
+
                 <%
                         } else {
                 %>
@@ -80,38 +83,45 @@
                     }
                 %>
             </div>
+            
 
+                
             <!-- Seção de Transações -->
-            <div class="transacoes">
-                <h3>Útimios Gastos</h3>
-                <table>
+             <div class="transactions-section">
+                <h3 class="transactions-title">Transações Recentes</h3>
+                <table class="transactions-table">
                     <thead>
                         <tr>
-                            <th>Tipo</th>
                             <th>Data</th>
                             <th>Descrição</th>
+                            <th>Tipo</th>
                             <th>Valor</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Exemplo de transações estáticas -->
                         <tr>
-                            <td>Débito</td>
-                            <td>25/11/2024</td>
+                            <td>15/05/2023</td>
+                            <td>Depósito</td>
+                            <td><span class="transaction-type transaction-type-credit">Crédito</span></td>
+                            <td>R$ 1.000,00</td>
+                        </tr>
+                        <tr>
+                            <td>14/05/2023</td>
                             <td>Supermercado XYZ</td>
-                            <td>R$ 150,00</td>
+                            <td><span class="transaction-type transaction-type-debit">Débito</span></td>
+                            <td>R$ 250,30</td>
                         </tr>
                         <tr>
-                            <td>Crédito</td>
-                            <td>23/11/2024</td>
-                            <td>Loja ABC</td>
-                            <td>R$ 400,00</td>
+                            <td>13/05/2023</td>
+                            <td>Transferência para João</td>
+                            <td><span class="transaction-type transaction-type-debit">Débito</span></td>
+                            <td>R$ 500,00</td>
                         </tr>
                         <tr>
-                            <td>Débito</td>
-                            <td>21/11/2024</td>
-                            <td>Restaurante 123</td>
-                            <td>R$ 80,00</td>
+                            <td>12/05/2023</td>
+                            <td>Salário</td>
+                            <td><span class="transaction-type transaction-type-credit">Crédito</span></td>
+                            <td>R$ 3.500,00</td>
                         </tr>
                     </tbody>
                 </table>

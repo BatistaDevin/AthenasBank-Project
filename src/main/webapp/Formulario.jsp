@@ -15,6 +15,9 @@
             <div class="bank-name">Athenas Bank</div>
         </div>
         <nav class="nav-links">
+             <a href="TelaPrincipal.html" class="nav-item">
+                <img src="vector.png" alt="" class="icon"> Início
+            </a>
             <a href="Perfil.jsp" class="nav-item">
                 <img src="vector.png" alt="" class="icon"> Perfil
             </a>
