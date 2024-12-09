@@ -13,15 +13,36 @@
     <div class="container">
         <!-- Menu Lateral -->
         <div class="sidebar">
-            <img src="logo.png" alt="Logo do Banco">
-            <h1>Athenas Bank</h1>
-            <a href="Perfil.jsp" class="menu-item">Perfil</a>
-            <a href="Parcelamento.jsp" class="menu-item">Parcelamento</a>
-            <a href="Formulario.jsp" class="menu-item">Solicitações</a>
-            <a href="Solicitacoes.jsp" class="menu-item">Cartões</a>
-            <a href="Transferencias.jsp" class="menu-item">Transferências</a>
-            <a href="chat.jsp" class="menu-item">Chat Bank</a>
-            <a href="index.jsp" class="logout">Sair</a>
+            <div class="logo-area">
+                <img src="Imagens/logo.png" alt="Logo do Banco">
+                <div class="bank-name">Athenas Bank</div>
+            </div>
+            <nav class="nav-links">
+                <a href="TelaPrincipal.html" class="nav-item">
+                    <img src="vector.png" alt="" class="icon"> Início
+                </a>
+                <a href="Perfil.jsp" class="nav-item">
+                    <img src="vector.png" alt="" class="icon"> Perfil
+                </a>
+                <a href="Parcelamento.jsp" class="nav-item">
+                    <img src="carteira.png" alt="" class="icon"> Parcelamento
+                </a>
+                <a href="Formulario.jsp" class="nav-item">
+                    <img src="transf.png" alt="" class="icon"> Solicitações
+                </a>
+                <a href="Solicitacoes.jsp" class="nav-item">
+                    <img src="vector.png" alt="" class="icon"> Cartões
+                </a>
+                <a href="Transferencias.jsp" class="nav-item">
+                    <img src="vector.png" alt="" class="icon"> Transferências
+                </a>
+                <a href="chat.jsp" class="nav-item">
+                    <img src="chat.png" alt="" class="icon"> Chat Bank
+                </a>
+                <div class="profile-section">
+                    <a href="index.jsp" class="logout">Sair</a>
+                </div>
+            </nav>
         </div>
 
         <!-- Conteúdo Principal -->
@@ -29,20 +50,17 @@
             <h2>Simulação de Parcelamento</h2>
 
             <%
-                // Obtém o CPF do usuário logado da sessão
                 String cpfUsuarioLogado = (String) session.getAttribute("cpfUsuario");
-
                 if (cpfUsuarioLogado == null) {
-                    response.sendRedirect("index.jsp"); // Redireciona se não estiver autenticado
+                    response.sendRedirect("index.jsp");
                 }
 
-                // Busca o limite com base no CPF
                 double limite = SolicitacaoDAO.buscarLimite(cpfUsuarioLogado);
             %>
 
             <p>Seu limite disponível: <strong>R$ <%= String.format("%.2f", limite) %></strong></p>
 
-            <!-- Formulário para selecionar o número de parcelas -->
+            <!-- Formulário para Simulação -->
             <form action="Parcelamento.jsp" method="POST">
                 <label for="parcelas">Selecione o número de parcelas (1 a 12):</label>
                 <select name="parcelas" id="parcelas" required>
@@ -53,21 +71,22 @@
                 <button type="submit">Simular Parcelamento</button>
             </form>
 
-            <!-- Cálculo das parcelas -->
+            <!-- Cálculo das Parcelas -->
             <%
                 String parcelasParam = request.getParameter("parcelas");
                 if (parcelasParam != null) {
                     int parcelas = Integer.parseInt(parcelasParam);
                     double valorParcela = limite / parcelas;
-
-                    out.println("<h3>Extrato de Parcelamento:</h3>");
-                    out.println("<ul>");
-                    for (int i = 1; i <= parcelas; i++) {
-                        out.println("<li>Parcela " + i + ": R$ " + String.format("%.2f", valorParcela) + "</li>");
-                    }
-                    out.println("</ul>");
-                }
             %>
+            <div class="extrato">
+                <h3>Extrato de Parcelamento:</h3>
+                <ul>
+                    <% for (int i = 1; i <= parcelas; i++) { %>
+                        <li>Parcela <%= i %>: R$ <%= String.format("%.2f", valorParcela) %></li>
+                    <% } %>
+                </ul>
+            </div>
+            <% } %>
         </div>
     </div>
 </body>

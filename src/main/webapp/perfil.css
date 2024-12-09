@@ -71,20 +71,25 @@ body {
 }
 
 .profile-section {
-    padding: 1rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+    padding: 1rem;
 }
 
 .logout {
-    width: 100%;
+    display: block;
     padding: 0.5rem;
-    background: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 1rem;
+    background-color: transparent;
+    border: 1px solid white;
     text-align: center;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.logout:hover {
+    background-color: white;
+    color: #800000;
 }
 
 /* Main content */
