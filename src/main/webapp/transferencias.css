@@ -1,92 +1,150 @@
-/* Estilo Geral */
+/* Reset e Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #F0F0F0;
+    overflow-x: hidden; /* Evita rolagem lateral */
 }
 
+/* Estrutura Principal */
 .container {
     display: flex;
     height: 100vh;
     color: #333;
+    overflow: hidden;
 }
 
 /* Menu Lateral */
 .sidebar {
-    width: 250px;
-    background-color: #A00000;
+    width: 250px; /* Largura fixa do menu */
+    background-color: #800000;
+    color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    color: #FFFFFF;
+    position: fixed;
+    height: 100%;
 }
 
-.sidebar img {
-    width: 100px;
-    margin-bottom: 20px;
-}
-
-.sidebar h1 {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.sidebar .menu-item {
-    margin: 10px 0;
-    padding: 10px;
+.logo-area {
+    padding: 2rem;
     text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    color: #FFFFFF;
+}
+
+.logo-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 0.5rem;
+    border-radius: 50%;
+    background-image: url('logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bank-name {
+    font-size: 1rem;
+    color: #F4DB8F;
+    font-family: Aldrich, sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 0;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-item .icon {
+    margin-right: 0.75rem;
+    width: 20px;
+}
+
+.profile-section {
+    margin-top: auto;
+    padding: 1rem;
+}
+
+.logout {
+    display: block;
+    padding: 0.5rem;
+    background-color: transparent;
+    border: 1px solid white;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
     text-decoration: none;
     transition: background-color 0.3s;
 }
 
-.sidebar .menu-item:hover {
-    background-color: #FF6347;
-}
-
-.sidebar .logout {
-    margin-top: auto;
-    margin-bottom: 20px;
-    padding: 10px 20px;
-    background-color: #FF0000;
-    color: #FFFFFF;
-    text-align: center;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
+.logout:hover {
+    background-color: white;
+    color: #800000;
 }
 
 /* Conteúdo Principal */
 .content {
-    flex: 1;
+    flex: 1; /* O conteúdo ocupa todo o espaço restante */
+    margin-left: 250px; /* Espaço reservado para o menu lateral fixo */
     padding: 20px;
     background-color: #FFF;
+    border-radius: 0;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo interno */
 }
 
 .content h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 28px;
     color: #A00000;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #A00000;
+    padding-bottom: 5px;
 }
 
 /* Tabela de Transações */
-.transacoes table {
-    width: 100%;
-    border-collapse: collapse;
+.transacoes {
     margin-top: 20px;
 }
 
-.transacoes th, .transacoes td {
-    padding: 10px;
-    border: 1px solid #DDD;
+.transacoes table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fdfdfd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.transacoes th,
+.transacoes td {
+    padding: 15px;
+    border: 1px solid #ddd;
     text-align: left;
+    font-size: 16px;
 }
 
 .transacoes th {
@@ -95,5 +153,55 @@ body {
 }
 
 .transacoes tr:nth-child(even) {
-    background-color: #F9F9F9;
+    background-color: #f8f8f8;
+}
+
+.transacoes tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Reduz o tamanho do menu em telas menores */
+    }
+
+    .content {
+        margin-left: 200px; /* Ajusta o conteúdo para acompanhar o menu menor */
+        padding: 15px;
+    }
+
+    .nav-item {
+        font-size: 0.8rem; /* Reduz o tamanho da fonte dos links */
+        padding: 0.5rem 1rem;
+    }
+
+    .logo-area {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        position: absolute;
+        width: 100%; /* Menu ocupa toda a largura da tela */
+        height: auto;
+    }
+
+    .content {
+        margin-left: 0; /* Conteúdo ocupa a tela toda */
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: row; /* Links ficam lado a lado */
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .nav-item {
+        flex: 1; /* Links se ajustam ao espaço disponível */
+        text-align: center;
+        padding: 0.5rem 0;
+    }
 }

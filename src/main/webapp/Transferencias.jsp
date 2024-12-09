@@ -14,15 +14,36 @@
     <div class="container">
         <!-- Menu Lateral -->
         <div class="sidebar">
-            <img src="logo.png" alt="Logo do Banco">
-            <h1>Athenas Bank</h1>
-            <a href="Perfil.jsp" class="menu-item">Perfil</a>
-            <a href="Parcelamento.jsp" class="menu-item">Parcelamento</a>
-            <a href="Formulario.jsp" class="menu-item">Solicitações</a>
-            <a href="Solicitacoes.jsp" class="menu-item">Cartões</a>
-            <a href="Transferencias.jsp" class="menu-item">Transferências</a>
-            <a href="chat.jsp" class="menu-item">Chat Bank</a>
-            <a href="index.jsp" class="logout">Sair</a>
+            <div class="logo-area">
+                <img src="Imagens/logo.png" alt="Logo do Banco">
+                <div class="bank-name">Athenas Bank</div>
+            </div>
+            <nav class="nav-links">
+                <a href="TelaPrincipal.html" class="nav-item">
+                    <img src="vector.png" alt="" class="icon"> Início
+                </a>
+                <a href="Perfil.jsp" class="nav-item">
+                    <img src="vector.png" alt="" class="icon"> Perfil
+                </a>
+                <a href="Parcelamento.jsp" class="nav-item">
+                    <img src="carteira.png" alt="" class="icon"> Parcelamento
+                </a>
+                <a href="Formulario.jsp" class="nav-item">
+                    <img src="transf.png" alt="" class="icon"> Solicitações
+                </a>
+                <a href="Solicitacoes.jsp" class="nav-item">
+                    <img src="vector.png" alt="" class="icon"> Cartões
+                </a>
+                <a href="Transferencias.jsp" class="nav-item">
+                    <img src="vector.png" alt="" class="icon"> Transferências
+                </a>
+                <a href="chat.jsp" class="nav-item">
+                    <img src="chat.png" alt="" class="icon"> Chat Bank
+                </a>
+                <div class="profile-section">
+                    <a href="index.jsp" class="logout">Sair</a>
+                </div>
+            </nav>
         </div>
 
         <!-- Conteúdo Principal -->
@@ -40,31 +61,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Exemplo de transações estáticas -->
-                        <tr>
-                            <td>Débito</td>
-                            <td>25/11/2024</td>
-                            <td>Supermercado XYZ</td>
-                            <td>R$ 150,00</td>
-                        </tr>
-                        <tr>
-                            <td>Crédito</td>
-                            <td>23/11/2024</td>
-                            <td>Loja ABC</td>
-                            <td>R$ 400,00</td>
-                        </tr>
-                        <tr>
-                            <td>Débito</td>
-                            <td>21/11/2024</td>
-                            <td>Restaurante 123</td>
-                            <td>R$ 80,00</td>
-                        </tr>
-                        <tr>
-                            <td>Crédito</td>
-                            <td>20/11/2024</td>
-                            <td>Livraria DEF</td>
-                            <td>R$ 120,00</td>
-                        </tr>
+                        <!-- Dados de Exemplo -->
                         <tr>
                             <td>Débito</td>
                             <td>18/11/2024</td>
@@ -83,30 +80,7 @@
                             <td>Cinema MNO</td>
                             <td>R$ 80,00</td>
                         </tr>
-                        <tr>
-                            <td>Débito</td>
-                            <td>14/11/2024</td>
-                            <td>Padaria PQR</td>
-                            <td>R$ 30,00</td>
-                        </tr>
-                        <tr>
-                            <td>Crédito</td>
-                            <td>13/11/2024</td>
-                            <td>Shopping STU</td>
-                            <td>R$ 500,00</td>
-                        </tr>
-                        <tr>
-                            <td>Débito</td>
-                            <td>12/11/2024</td>
-                            <td>Academia VWX</td>
-                            <td>R$ 100,00</td>
-                        </tr>
-                        <tr>
-                            <td>Crédito</td>
-                            <td>10/11/2024</td>
-                            <td>Viagem YZ</td>
-                            <td>R$ 1.200,00</td>
-                        </tr>
+                        <!-- Adicione mais linhas conforme necessário -->
                     </tbody>
                 </table>
             </div>
