@@ -6,7 +6,7 @@ document.getElementById('credit-form').addEventListener('submit', function(event
     const pretensao = document.getElementById('pretensao').value;
 
     if (!(nome && cpf && renda && ocupacao && pretensao)) {
-        event.preventDefault(); // Impede o envio se algum campo estiver vazio
+        event.preventDefault(); 
         alert("Por favor, preencha todos os campos.");
     }
 });

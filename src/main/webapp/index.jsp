@@ -21,15 +21,15 @@
         <h1 class="form-title">Login</h1>
 
         <% 
-        // Verifica se há mensagem de erro na requisição (caso tenha falhado o login)
+        
         String errorMessage = (String) request.getAttribute("errorMessage");
         if (errorMessage != null) {
             out.println("<div class='alert alert-danger' role='alert'>" + errorMessage + "</div>");
         }
         %>
 
-        <!-- Formulário de Login -->
-        <form method="post" action="login"> <!-- Ação alterada para /login -->
+        
+        <form method="post" action="login">
                 <div class="form-group">
                     <label for="cpf">CPF:</label>
                     <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite seu CPF" required>

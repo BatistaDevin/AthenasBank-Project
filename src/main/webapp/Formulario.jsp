@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Menu Lateral -->
+      
         <div class="sidebar">
         <div class="logo-area">
            <img src="Imagens/logo.png" alt="Logo do Banco">
@@ -42,11 +42,11 @@
         </nav>
     </div>
 
-        <!-- Conteúdo Principal -->
+       
         <div class="content">
             <h2>Solicitação de Crédito</h2>
 
-            <!-- Exibir a mensagem de status -->
+           
             <% 
                 String mensagem = request.getAttribute("mensagem") != null ? (String) request.getAttribute("mensagem") : ""; 
             %>
@@ -54,7 +54,7 @@
 
             <form id="credit-form" action="SolicitacaoServlet" method="post">
                 <div class="form-left">
-                    <!-- Informações Pessoais -->
+                   
                     <label for="nome">Nome Completo</label>
                     <input type="text" id="nome" name="nome" required>
 
@@ -64,7 +64,7 @@
                     <label for="score">Score de Crédito</label>
                     <input type="number" id="score" name="score" min="0" max="1000" required>
 
-                    <!-- Renda e Ocupação -->
+                  
                     <label for="renda">Renda Mensal (R$)</label>
                     <input type="number" id="renda" name="renda" min="0" step="0.01" required>
 
@@ -77,12 +77,12 @@
                         <option value="desempregado">Desempregado</option>
                     </select>
 
-                    <!-- Pretensão de Crédito -->
+                  
                     <label for="pretensao">Pretensão de Crédito (R$)</label>
                     <input type="number" id="pretensao" name="pretensao" min="0" step="0.01" required>
                 </div>
 
-                <!-- Lateral para Propriedades Declaradas -->
+                
                 <div class="form-right">
                     <h3>Propriedades Declaradas</h3>
 
@@ -105,7 +105,7 @@
     </div>
 
     <script>
-        // Validação simples para os campos antes do envio
+       
         document.getElementById('credit-form').addEventListener('submit', function(event) {
             const nome = document.getElementById('nome').value;
             const cpf = document.getElementById('cpf').value;
@@ -114,7 +114,7 @@
             const pretensao = document.getElementById('pretensao').value;
 
             if (!(nome && cpf && renda && ocupacao && pretensao)) {
-                event.preventDefault(); // Impede o envio se algum campo estiver vazio
+                event.preventDefault(); 
                 alert("Por favor, preencha todos os campos.");
             }
         });

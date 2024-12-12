@@ -14,7 +14,7 @@ public class passwordHashing {
             }
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
-            // Tratar a exceção, como lançar uma exceção personalizada ou logar o erro
+            
             throw new RuntimeException("Algoritmo de hash não encontrado.", e);
         }
     }

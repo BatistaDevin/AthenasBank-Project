@@ -20,12 +20,12 @@ public class LoginDao {
         }
     }
 
-    // Método para obter conexão com o banco de dados
+   
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
 
-    // Método para validar usuário
+  
     public boolean validate(String cpf, String agencia, String password) {
         boolean status = false;
         String query = "SELECT * FROM usuario WHERE cpf = ? AND agencia = ? AND password = ?";

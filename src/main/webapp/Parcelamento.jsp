@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Menu Lateral -->
+      
         <div class="sidebar">
             <div class="logo-area">
                 <img src="Imagens/logo.png" alt="Logo do Banco">
@@ -45,7 +45,7 @@
             </nav>
         </div>
 
-        <!-- Conteúdo Principal -->
+     
         <div class="content">
             <h2>Simulação de Parcelamento</h2>
 
@@ -71,7 +71,7 @@
                 <button type="submit">Simular Parcelamento</button>
             </form>
 
-            <!-- Cálculo das Parcelas -->
+          
             <%
                 String parcelasParam = request.getParameter("parcelas");
                 if (parcelasParam != null) {

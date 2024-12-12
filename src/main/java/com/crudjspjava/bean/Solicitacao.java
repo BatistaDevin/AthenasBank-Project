@@ -18,10 +18,10 @@ public class Solicitacao {
     private String imovel;
     private String veiculo;
     private String outrosBens;
-    private String numeroCartao; // Novo campo
-    private Date dataSolicitacao; // Novo campo
+    private String numeroCartao; 
+    private Date dataSolicitacao; 
 
-    // Getters e Setters
+   
     public int getId() {
         return id;
     }
@@ -142,19 +142,19 @@ public class Solicitacao {
         this.outrosBens = outrosBens;
     }
 
-    public String getNumeroCartao() { // Getter para o novo campo
+    public String getNumeroCartao() { 
         return numeroCartao;
     }
 
-    public void setNumeroCartao(String numeroCartao) { // Setter para o novo campo
+    public void setNumeroCartao(String numeroCartao) { 
         this.numeroCartao = numeroCartao;
     }
 
-    public Date getDataSolicitacao() { // Getter para o novo campo
+    public Date getDataSolicitacao() { 
         return dataSolicitacao;
     }
 
-    public void setDataSolicitacao(Date dataSolicitacao) { // Setter para o novo campo
+    public void setDataSolicitacao(Date dataSolicitacao) { 
         this.dataSolicitacao = dataSolicitacao;
     }
 }

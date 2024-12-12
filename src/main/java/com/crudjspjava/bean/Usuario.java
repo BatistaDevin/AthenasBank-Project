@@ -7,11 +7,11 @@ public class Usuario {
     private String email;
     private String sexo;
     private String pais;
-    private String cpf; // Novo campo
+    private String cpf; 
     private String agencia;
     private String numeroConta;
 
-    // Getters e Setters
+    
     public int getId() {
         return id;
     }

@@ -7,7 +7,7 @@ public class Cliente {
     private double renda;
     private int score;
 
-    // Getters e setters
+
     public int getId() {
         return id;
     }

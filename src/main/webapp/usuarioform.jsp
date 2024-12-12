@@ -20,7 +20,7 @@
     <div class="right-side">
         <h1 class="form-title">Cadastre-se</h1>
 
-        <!-- Mensagem de erro ou sucesso -->
+      
         <% 
             String message = "";
             try {
@@ -56,7 +56,7 @@
         %>
         <%= message %>
 
-        <!-- Formulário de Cadastro -->
+       
         <form action="usuarioform.jsp" method="post">
             <div class="form-group">
                 <input type="text" name="nome" class="form-control" placeholder="Nome Completo" required />

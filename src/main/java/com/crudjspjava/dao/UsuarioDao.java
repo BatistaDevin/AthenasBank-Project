@@ -23,7 +23,7 @@ public class UsuarioDao {
         return con;
     }
 
-    // Método para verificar se o CPF já existe
+  
     public static boolean isCpfExists(String cpf) {
         boolean exists = false;
         try (Connection con = getConnection();
@@ -40,12 +40,12 @@ public class UsuarioDao {
         return exists;
     }
 
-    // Método para salvar usuário com validação de CPF duplicado
+   
     public static int salvarUsuario(Usuario u) {
         int status = 0;
         if (isCpfExists(u.getCpf())) {
             System.out.println("Erro: O CPF já está cadastrado no sistema.");
-            return -1; // Indica que o CPF já existe
+            return -1; 
         }
         try (Connection con = getConnection();
              PreparedStatement ps = con.prepareStatement("INSERT INTO usuario (nome, password, email, sexo, pais, cpf) VALUES (?, ?, ?, ?, ?, ?)")) {
@@ -62,7 +62,7 @@ public class UsuarioDao {
         return status;
     }
 
-    // Método para buscar usuário por ID
+  
     public static Usuario getRegistroById(int id) {
         Usuario usuario = null;
         try (Connection con = getConnection();
@@ -86,7 +86,7 @@ public class UsuarioDao {
         return usuario;
     }
 
-    // Método para listar todos os usuários
+  
     public static List<Usuario> getAllUsuarios() {
         List<Usuario> list = new ArrayList<>();
         try (Connection con = getConnection();
@@ -109,7 +109,7 @@ public class UsuarioDao {
         return list;
     }
 
-    // Método para atualizar usuário
+
     public static int updateUsuario(Usuario u) {
         int status = 0;
         try (Connection con = getConnection();
@@ -127,8 +127,7 @@ public class UsuarioDao {
         }
         return status;
     }
- // Método para buscar dados completos do perfil por ID
- // Método alterado para buscar dados completos do perfil por CPF
+ 
     public static Usuario getPerfilByCpf(String cpf) {
         Usuario usuario = null;
         try (Connection con = getConnection();
@@ -145,7 +144,7 @@ public class UsuarioDao {
                     usuario.setCpf(rs.getString("cpf"));
                     usuario.setAgencia(rs.getString("agencia"));
 
-                    // Gerar um número de conta único baseado no CPF
+                   
                     String numeroConta = gerarNumeroConta(cpf);
                     usuario.setNumeroConta(numeroConta);
                 }
@@ -156,15 +155,15 @@ public class UsuarioDao {
         return usuario;
     }
 
-    // Método para gerar um número de conta baseado no CPF
+    
     private static String gerarNumeroConta(String cpf) {
-        // Aqui é gerado um número simples a partir do CPF, garantindo que seja único para o mesmo CPF
-        // Esse método pode ser aprimorado para algo mais complexo, mas a ideia é gerar algo simples
-        int numeroConta = cpf.hashCode(); // Converte o CPF para um hash inteiro
+       
+     
+        int numeroConta = cpf.hashCode();
         if (numeroConta < 0) {
-            numeroConta = -numeroConta; // Garante que o número da conta seja positivo
+            numeroConta = -numeroConta; 
         }
-        return String.format("%08d", numeroConta); // Formata para 8 dígitos
+        return String.format("%08d", numeroConta);
     }
     
 

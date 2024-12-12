@@ -6,7 +6,7 @@
 <%@ page import="java.sql.Connection" %>
 
 <%
-    // Autenticação: verificar usuário logado
+   
     String cpfUsuarioLogado = (String) session.getAttribute("cpfUsuario");
 
     if (cpfUsuarioLogado == null) {

@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Menu Lateral -->
+     
         <div class="sidebar">
         <div class="logo-area">
            <img src="Imagens/logo.png" alt="Logo do Banco">
@@ -46,22 +46,22 @@
         </nav>
     </div>
 
-        <!-- Conteúdo Principal -->
+       
         
         <div class="content">
             <h2>Cartões</h2>
 
-            <!-- Seção de Cartões -->
+           
             <div class="cartoes-container">
                 <%
-                    // Obtém CPF do usuário logado (armazenado na sessão)
+                   
                     String cpfUsuarioLogado = (String) session.getAttribute("cpfUsuario");
 
                     if (cpfUsuarioLogado == null) {
-                        response.sendRedirect("index.jsp"); // Redireciona para login se não estiver autenticado
+                        response.sendRedirect("index.jsp"); 
                     } else {
                         SolicitacaoDAO dao = new SolicitacaoDAO();
-                        Solicitacao solicitacao = dao.buscarSolicitacaoPorCpf(cpfUsuarioLogado); // Busca os dados com base no CPF
+                        Solicitacao solicitacao = dao.buscarSolicitacaoPorCpf(cpfUsuarioLogado); 
 
                         if (solicitacao != null) {
                 %>
@@ -72,7 +72,7 @@
             <p><strong>CVV:</strong> <%= solicitacao.getCvv() %></p>
             <p><strong>Validade:</strong> <%= solicitacao.getValidade() %></p>
             <p><strong>Limite:</strong> R$ <%= String.format("%.2f", solicitacao.getLimiteCredito()) %></p>
-            <p><strong>Agência:</strong> 1234</p>
+            <p><strong>Agência:</strong> 0001</p>
         </div>
     </div>
 </div>
@@ -89,7 +89,7 @@
             
 
                 
-            <!-- Seção de Transações -->
+            
              <div class="transactions-section">
                 <h3 class="transactions-title">Transações Recentes</h3>
                 <table class="transactions-table">

@@ -44,7 +44,7 @@
             </div>
         </nav>
     </div>
-        <!-- Conteúdo Principal -->
+      
         <div class="content">
             <h2>Chat do Banco Digital</h2>
 
@@ -52,13 +52,13 @@
             <div class="chat-container">
                 <div class="chat-history">
                     <%
-                        // Recupera o histórico do chat
+                    
                         String chatHistory = (String) session.getAttribute("chatHistory");
                         if (chatHistory == null) {
                             chatHistory = "<div class='chat-message system-message'><strong>Banco:</strong> Olá! Para prosseguir, informe o seu CPF.</div>";
                         }
 
-                        // Inicializa o DAO para consultas
+                      
                         SolicitacaoDAO dao = new SolicitacaoDAO();
                         String userInput = request.getParameter("userInput");
                         String cpf = (String) session.getAttribute("cpf");
@@ -70,9 +70,9 @@
 
                             String systemResponse = "";
 
-                            // Verifica se o CPF foi informado
+                          
                             if (cpf == null) {
-                                // Validar o CPF informado
+                               
                                 if (userInput.matches("\\d{11}")) {
                                     cpf = userInput;
                                     session.setAttribute("cpf", cpf);
@@ -87,7 +87,7 @@
                                                          "6. Sair";
                                     } else {
                                         systemResponse = "Nenhuma solicitação encontrada para este CPF. Tente novamente.";
-                                        session.setAttribute("cpf", null); // Remove o CPF inválido
+                                        session.setAttribute("cpf", null); 
                                     }
                                 } else {
                                     systemResponse = "CPF inválido. Por favor, digite um CPF válido com 11 dígitos.";
@@ -127,7 +127,7 @@
                                 }
                             }
 
-                            // Adiciona a resposta do sistema ao histórico
+                          
                             chatHistory += "<div class='chat-message system-message'><strong>Banco:</strong> " + systemResponse + "</div>";
                             session.setAttribute("chatHistory", chatHistory);
                         }
@@ -135,7 +135,7 @@
                     <%= chatHistory %>
                 </div>
 
-                <!-- Formulário de Envio -->
+               
                 <form class="chat-form" method="post" action="chat.jsp">
                     <input type="text" name="userInput" placeholder="Digite aqui..." required>
                     <input type="submit" value="Enviar">

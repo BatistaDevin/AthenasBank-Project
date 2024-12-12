@@ -10,8 +10,8 @@ import java.util.Random;
 public class SolicitacaoDAO {
 
     private static final String URL = "jdbc:mysql://localhost:3306/crudjspjava";
-    private static final String USER = "root"; // Substitua pelo seu usuário do MySQL
-    private static final String PASSWORD = ""; // Substitua pela sua senha do MySQL
+    private static final String USER = "root"; 
+    private static final String PASSWORD = ""; 
 
     private Connection getConnection() {
         try {
@@ -24,17 +24,17 @@ public class SolicitacaoDAO {
     }
 
     public boolean salvarSolicitacao(Solicitacao solicitacao) {
-        boolean sucesso = false; // Variável para monitorar o status da operação
+        boolean sucesso = false; 
 
         try (Connection con = getConnection()) {
-            // Calcula limite de crédito
+           
             double limiteCredito = calcularLimiteCredito(solicitacao.getScore(), solicitacao.getRenda());
-            // Gera dados do cartão
+      
             String numeroCartao = gerarNumeroCartao();
             String validade = gerarDataValidade();
             String cvv = gerarCVV();
 
-            // Query para inserir dados no banco
+           
             String query = "INSERT INTO solicitacoes (nome, cpf, renda, score, limite, cartao, validade, cvv) "
                          + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement stmt = con.prepareStatement(query);
@@ -47,15 +47,15 @@ public class SolicitacaoDAO {
             stmt.setString(7, validade);
             stmt.setString(8, cvv);
 
-            int linhasAfetadas = stmt.executeUpdate(); // Obtém o número de linhas inseridas
-            sucesso = (linhasAfetadas > 0); // Define sucesso como true se pelo menos uma linha foi afetada
+            int linhasAfetadas = stmt.executeUpdate(); 
+            sucesso = (linhasAfetadas > 0); 
             stmt.close();
         } catch (Exception e) {
             e.printStackTrace();
-            sucesso = false; // Garante que a falha seja registrada
+            sucesso = false; 
         }
 
-        return sucesso; // Retorna o status da operação
+        return sucesso; 
     }
 
 
@@ -67,12 +67,12 @@ public class SolicitacaoDAO {
             PreparedStatement stmt;
 
             if (cpf != null && !cpf.isEmpty()) {
-                // Consulta pelo CPF, se fornecido
+                
                 query = "SELECT * FROM solicitacoes WHERE cpf = ? ORDER BY id DESC LIMIT 1";
                 stmt = con.prepareStatement(query);
                 stmt.setString(1, cpf);
             } else {
-                // Consulta o último registro, caso o CPF não seja fornecido
+            
                 query = "SELECT * FROM solicitacoes ORDER BY id DESC LIMIT 1";
                 stmt = con.prepareStatement(query);
             }
@@ -88,7 +88,7 @@ public class SolicitacaoDAO {
                 solicitacao.setPretensao(rs.getDouble("pretensao"));
                 solicitacao.setScore(rs.getInt("score"));
 
-                // Calcula o limite de crédito
+               
                 double limiteCredito = calcularLimiteCredito(solicitacao.getScore(), solicitacao.getRenda());
                 solicitacao.setLimiteCredito(limiteCredito);
 
@@ -127,9 +127,9 @@ public class SolicitacaoDAO {
 
     private double calcularLimiteCredito(int score, double renda) {
         if (score > 200) {
-            return renda * 2; // Limite = 2x a renda
+            return renda * 2; 
         }
-        return 0; // Score <= 200, limite 0
+        return 0; 
     }
 
     private String gerarNumeroCartao() {
@@ -145,13 +145,13 @@ public class SolicitacaoDAO {
 
     private String gerarDataValidade() {
         LocalDate hoje = LocalDate.now();
-        LocalDate validade = hoje.plusYears(5); // Validade de 5 anos
+        LocalDate validade = hoje.plusYears(5);
         return validade.toString();
     }
 
     private String gerarCVV() {
         Random random = new Random();
-        int cvv = random.nextInt(900) + 100; // Gera um CVV entre 100 e 999
+        int cvv = random.nextInt(900) + 100; 
         return String.valueOf(cvv);
     }
 }

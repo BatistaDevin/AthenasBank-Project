@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Menu Lateral -->
+        
         <div class="sidebar">
             <div class="logo-area">
                 <img src="Imagens/logo.png" alt="Logo do Banco">
@@ -46,7 +46,7 @@
             </nav>
         </div>
 
-        <!-- Conteúdo Principal -->
+    
         <div class="content">
             <h2>Extrato Bancário</h2>
             <div class="transacoes">
@@ -80,7 +80,7 @@
                             <td>Cinema MNO</td>
                             <td>R$ 80,00</td>
                         </tr>
-                        <!-- Adicione mais linhas conforme necessário -->
+                       
                     </tbody>
                 </table>
             </div>
